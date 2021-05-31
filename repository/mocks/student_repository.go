@@ -1,15 +1,15 @@
-package repository
+package mocks
 
 import (
 	"auth/model"
 	"github.com/stretchr/testify/mock"
 )
 
-type studentRepository struct {
+type StudentRepository struct {
 	mock.Mock
 }
 
-func (_m *studentRepository) Store(s *model.Student) error {
+func (_m *StudentRepository) Store(s *model.Student) error {
 	ret := _m.Called(s)
 
 	var r0 error
@@ -22,7 +22,7 @@ func (_m *studentRepository) Store(s *model.Student) error {
 	return r0
 }
 
-func (_m *studentRepository) GetByGcn(gcn string) (*model.Student, error){
+func (_m *StudentRepository) GetByGcn(gcn string) (*model.Student, error){
 	ret := _m.Called(gcn)
 
 	var r0 *model.Student
