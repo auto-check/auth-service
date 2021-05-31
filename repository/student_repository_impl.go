@@ -3,7 +3,9 @@ package repository
 import (
 	"auth/model"
 	"database/sql"
+	"fmt"
 	log "github.com/sirupsen/logrus"
+	"runtime/debug"
 )
 
 type studentRepository struct {
@@ -19,14 +21,14 @@ func NewStudentRepository(db *sql.DB) StudentRepository {
 func (sr *studentRepository) fetch(query string, args ...interface{}) ([]model.Student, error){
 	rows, err := sr.DB.Query(query, args...)
 	if err != nil {
-		log.Error(err)
+		log.Error(fmt.Sprintf("Error %s\n%s", err, debug.Stack()))
 		return nil, err
 	}
 
 	defer func() {
-		errRow := rows.Close()
-		if errRow != nil {
-			log.Error(errRow)
+		err = rows.Close()
+		if err != nil {
+			log.Error(fmt.Sprintf("Error %s\n%s", err, debug.Stack()))
 		}
 	}()
 
@@ -40,7 +42,7 @@ func (sr *studentRepository) fetch(query string, args ...interface{}) ([]model.S
 			&s.Email,
 			)
 		if err != nil {
-			log.Error(err)
+			log.Error(fmt.Sprintf("Error %s\n%s", err, debug.Stack()))
 			return nil, err
 		}
 		result = append(result, s)
@@ -49,23 +51,43 @@ func (sr *studentRepository) fetch(query string, args ...interface{}) ([]model.S
 	return result, nil
 }
 
-func (sr *studentRepository) Store(student *model.Student) error {
+func (sr *studentRepository) Store(s *model.Student) error {
+	query := `INSERT INTO student SET gcn=?, name=?, email=?`
+	stmt, err := sr.DB.Prepare(query)
+	if err != nil {
+		log.Errorf(fmt.Sprintf("Error %s\n%s", err, debug.Stack()))
+		return err
+	}
+
+	res, err := stmt.Exec(s.Gcn, s.Name, s.Email)
+	if err != nil {
+		log.Errorf(fmt.Sprintf("Error %s\n%s", err, debug.Stack()))
+		return err
+	}
+
+	lastID, err := res.LastInsertId()
+	if err != nil {
+		log.Errorf(fmt.Sprintf("Error %s\n%s", err, debug.Stack()))
+		return err
+	}
+	s.ID = lastID
+
 	return nil
 }
 
-func (sr *studentRepository) IsExistByGcn(gcn string) (bool, error){
+func (sr *studentRepository) GetByGcn(gcn string) (*model.Student, error){
 	query := `SELECT id, gcn, name, email FROM student WHERE gcn = ?`
 
 	res, err := sr.fetch(query, gcn)
 	if err != nil {
-		return false, err
+		return nil, err
 	}
 
 	if len(res) < 1 {
-		return false, nil
+		return nil, fmt.Errorf("No response data for student gcn %s", gcn)
 	}
 
-	return true, nil
+	return &res[0], nil
 }
 
 

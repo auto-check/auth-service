@@ -4,5 +4,5 @@ import "auth/model"
 
 type StudentRepository interface {
 	Store(*model.Student) error
-	IsExistByGcn(gcn string) (bool, error)
+	GetByGcn(gcn string) (*model.Student, error)
 }
