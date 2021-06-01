@@ -5,13 +5,6 @@ import (
 	"github.com/stretchr/testify/mock"
 )
 
-package mocks
-
-import (
-"auth/model"
-"github.com/stretchr/testify/mock"
-)
-
 type StudentUsecase struct {
 	mock.Mock
 }
