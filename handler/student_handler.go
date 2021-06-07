@@ -6,7 +6,6 @@ import (
 	authpb "auth/protocol-buffer/golang/auth"
 	"auth/usecase"
 	"context"
-	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
 )
 
@@ -15,15 +14,16 @@ type StudentHandler struct {
 	su usecase.StudentUsecase
 }
 
-func NewStudentHandler(gserver *grpc.Server, us usecase.StudentUsecase) {
+func NewStudentHandler(gserver *grpc.Server, us usecase.StudentUsecase) *StudentHandler {
 	handler := &StudentHandler{
 		su: us,
 	}
 	authpb.RegisterAuthServer(gserver, handler)
+	return handler
 }
 
 func (sh *StudentHandler) LoginAuth(ctx context.Context, r *authpb.LoginAuthRequest) (*authpb.LoginAuthResponse, error) {
-	oauthToken, err := client.GetOauthAccessToken(r.AuthorizationCode)
+	oauthToken, err := client.GetOauthAccessToken(r.Code)
 	if err != nil {
 		return nil, err
 	}
@@ -41,8 +41,6 @@ func (sh *StudentHandler) LoginAuth(ctx context.Context, r *authpb.LoginAuthRequ
 	if err != nil {
 		return nil, err
 	}
-
-	log.Info(at)
 
 	return &authpb.LoginAuthResponse{AccessToken: at, RefreshToken: rt}, nil
 }
