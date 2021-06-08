@@ -2,10 +2,11 @@ package handler
 
 import (
 	"auth/model"
-	"auth/module/client"
 	authpb "auth/protocol-buffer/golang/auth"
 	"auth/usecase"
 	"context"
+	"github.com/auto-check/common-module/jwt"
+	"github.com/auto-check/common-module/client"
 	"google.golang.org/grpc"
 )
 
