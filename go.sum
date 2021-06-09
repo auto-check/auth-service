@@ -43,6 +43,8 @@ github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kd
 github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e/go.mod h1:3U/XgcO3hCbHZ8TKRvWD2dDTCfh9M9ya+I9JpbB7O8o=
 github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da/go.mod h1:Q73ZrmVTwzkszR9V5SSuryQ31EELlFMUz1kKyl939pY=
 github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
+github.com/auto-check/common-module v0.0.0-20210608124529-3a335477962b h1:QnHUw9B94ced3vehotzG1sw3v4uCc98uz+Htq9VD72k=
+github.com/auto-check/common-module v0.0.0-20210608124529-3a335477962b/go.mod h1:Rec/xHv9WnJ8VR93uIIau3tabDtXNyrRU6Z9cSOFCUs=
 github.com/auto-check/protocol-buffer v0.0.0-20210601233715-6381c1d2239b h1:Q1qNfHNO6iHrHmM19Uy6PFehAkqE+JKWG4J8q/hexsY=
 github.com/auto-check/protocol-buffer v0.0.0-20210601233715-6381c1d2239b/go.mod h1:zAdtFCAvsjHGFXyVPX3ix3mjN5Qo1LfWhucu53e6sBQ=
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=

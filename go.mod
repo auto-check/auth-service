@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
+	github.com/auto-check/common-module v0.0.0-20210608124529-3a335477962b
 	github.com/auto-check/protocol-buffer v0.0.0-20210601233715-6381c1d2239b // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-sql-driver/mysql v1.6.0
