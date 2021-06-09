@@ -1,9 +1,9 @@
 package usecase
 
 import (
-	"auth/model"
-	"auth/module/jwt"
 	"auth/repository"
+	"github.com/auto-check/common-module/jwt"
+	"github.com/auto-check/common-module/model"
 )
 
 type studentUsecase struct {

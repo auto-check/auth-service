@@ -1,6 +1,6 @@
 package repository
 
-import "auth/model"
+import "github.com/auto-check/common-module/model"
 
 type StudentRepository interface {
 	Store(*model.Student) error

@@ -1,9 +1,9 @@
 package repository
 
 import (
-	"auth/model"
 	"database/sql"
 	"fmt"
+	"github.com/auto-check/common-module/model"
 	log "github.com/sirupsen/logrus"
 	"runtime/debug"
 )

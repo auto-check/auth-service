@@ -1,7 +1,7 @@
 package mocks
 
 import (
-	"auth/model"
+	"github.com/auto-check/common-module/model"
 	"github.com/stretchr/testify/mock"
 )
 

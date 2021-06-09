@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"auth/model"
 	sqlmock "github.com/DATA-DOG/go-sqlmock"
+	"github.com/auto-check/common-module/model"
 	"github.com/stretchr/testify/assert"
 	"regexp"
 	"testing"

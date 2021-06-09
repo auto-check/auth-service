@@ -1,13 +1,13 @@
 package handler
 
 import (
-	"auth/model"
 	authpb "auth/protocol-buffer/golang/auth"
 	"auth/usecase/mocks"
 	"bytes"
 	"context"
 	"encoding/json"
 	"github.com/auto-check/common-module/jwt"
+	"github.com/auto-check/common-module/model"
 	"github.com/joho/godotenv"
 	log "github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"

@@ -1,8 +1,8 @@
 package usecase
 
 import (
-	"auth/model"
 	"auth/repository/mocks"
+	"github.com/auto-check/common-module/model"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
