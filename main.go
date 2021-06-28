@@ -6,6 +6,7 @@ import (
 	"auth/usecase"
 	"database/sql"
 	"fmt"
+	"github.com/auto-check/main-service/client"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/joho/godotenv"
 	log "github.com/sirupsen/logrus"
@@ -47,12 +48,13 @@ func main() {
 	sr := repository.NewStudentRepository(dbConn)
 	su := usecase.NewStudentUsecase(sr)
 	server := grpc.NewServer()
-	handler.NewStudentHandler(server, su)
+	handler.NewStudentHandler(server, su, client.GetMainClient())
 
 	lis, err := net.Listen("tcp", ":"+os.Getenv("PORT"))
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	log.Infof("start gRPC server on %s port\n", os.Getenv("PORT"))
 	if err = server.Serve(lis); err != nil {
 		log.Fatal(err)
