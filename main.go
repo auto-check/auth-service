@@ -1,13 +1,16 @@
 package main
 
 import (
-	"auth/handler"
-	"auth/repository"
-	"auth/usecase"
 	"database/sql"
 	"fmt"
+	"github.com/auto-check/auth-service/handler"
+	"github.com/auto-check/auth-service/repository"
+	"github.com/auto-check/auth-service/usecase"
+	"github.com/auto-check/common-module/middleware"
 	"github.com/auto-check/main-service/client"
 	_ "github.com/go-sql-driver/mysql"
+	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
+	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
 	"github.com/joho/godotenv"
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
@@ -47,7 +50,10 @@ func main() {
 
 	sr := repository.NewStudentRepository(dbConn)
 	su := usecase.NewStudentUsecase(sr)
-	server := grpc.NewServer()
+	server := grpc.NewServer(
+		grpc.UnaryInterceptor(grpc_middleware.ChainUnaryServer(
+			grpc_auth.UnaryServerInterceptor(middleware.Authenticator))))
+
 	handler.NewStudentHandler(server, su, client.GetMainClient())
 
 	lis, err := net.Listen("tcp", ":"+os.Getenv("PORT"))

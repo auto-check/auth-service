@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"auth/usecase"
 	"context"
+	"github.com/auto-check/auth-service/usecase"
 	"github.com/auto-check/common-module/client"
 	"github.com/auto-check/common-module/model"
 	authpb "github.com/auto-check/protocol-buffer/golang/auth"
@@ -60,6 +60,8 @@ func (sh *StudentHandler) LoginAuth(ctx context.Context, r *authpb.LoginAuthRequ
 }
 
 func (sh *StudentHandler) GetStudentWithId(ctx context.Context, req *authpb.GetStudentWithIdRequest) (*authpb.GetStudentWithIdResponse, error) {
+	id, _ := ctx.Value("student_id").(int64)
+	log.Println(id)
 
 	return nil, nil
 }

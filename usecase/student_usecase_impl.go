@@ -1,7 +1,7 @@
 package usecase
 
 import (
-	"auth/repository"
+	"github.com/auto-check/auth-service/repository"
 	"github.com/auto-check/common-module/jwt"
 	"github.com/auto-check/common-module/model"
 )

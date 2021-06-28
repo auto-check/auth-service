@@ -8,26 +8,26 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 
-type MockMainClient struct {
+type MockAuthClient struct {
 	ctrl *gomock.Controller
-	recorder *mockMainClientRecorder
+	recorder *mockAuthClientRecorder
 }
 
-type mockMainClientRecorder struct {
-	mock *MockMainClient
+type mockAuthClientRecorder struct {
+	mock *MockAuthClient
 }
 
-func NewMockMainClient(ctrl *gomock.Controller) *MockMainClient{
-	mock := &MockMainClient{ctrl: ctrl}
-	mock.recorder = &mockMainClientRecorder{mock}
+func NewMockMainClient(ctrl *gomock.Controller) *MockAuthClient{
+	mock := &MockAuthClient{ctrl: ctrl}
+	mock.recorder = &mockAuthClientRecorder{mock}
 	return mock
 }
 
-func (m *MockMainClient) EXPECT() *mockMainClientRecorder {
+func (m *MockAuthClient) EXPECT() *mockAuthClientRecorder {
 	return m.recorder
 }
 
-func (m *MockMainClient) CreateMacro(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (m *MockAuthClient) CreateMacro(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	s := []interface{}{ctx, in}
 	for _, opt:= range opts {
 		s = append(s, opt)
@@ -40,13 +40,13 @@ func (m *MockMainClient) CreateMacro(ctx context.Context, in *emptypb.Empty, opt
 	return ret0, ret1
 }
 
-func (mr *mockMainClientRecorder) CreateMacro(arg0, arg1 interface{}) *gomock.Call {
+func (mr *mockAuthClientRecorder) CreateMacro(arg0, arg1 interface{}) *gomock.Call {
 	s := []interface{}{arg0, arg1}
 	return mr.mock.ctrl.RecordCall(mr.mock, "CreateMacro", s...)
 }
 
 
-func (m *MockMainClient) GetLogListWithID(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*mainpb.GetLogListWithIDResponse, error){
+func (m *MockAuthClient) GetLogListWithID(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*mainpb.GetLogListWithIDResponse, error){
 	s := []interface{}{ctx, in}
 	for _, opt:= range opts {
 		s = append(s, opt)
@@ -59,12 +59,12 @@ func (m *MockMainClient) GetLogListWithID(ctx context.Context, in *emptypb.Empty
 	return ret0, ret1
 }
 
-func (mr *mockMainClientRecorder) GetLogListWithID(arg0, arg1 interface{}) *gomock.Call {
+func (mr *mockAuthClientRecorder) GetLogListWithID(arg0, arg1 interface{}) *gomock.Call {
 	s := []interface{}{arg0, arg1}
 	return mr.mock.ctrl.RecordCall(mr.mock, "GetLogListWithID", s...)
 }
 
-func (m *MockMainClient) GetMacroStatus(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*mainpb.GetMacroStatusResponse, error){
+func (m *MockAuthClient) GetMacroStatus(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*mainpb.GetMacroStatusResponse, error){
 	s := []interface{}{ctx, in}
 	for _, opt:= range opts {
 		s = append(s, opt)
@@ -77,12 +77,12 @@ func (m *MockMainClient) GetMacroStatus(ctx context.Context, in *emptypb.Empty, 
 	return ret0, ret1
 }
 
-func (mr *mockMainClientRecorder) GetMacroStatus(arg0, arg1 interface{}) *gomock.Call {
+func (mr *mockAuthClientRecorder) GetMacroStatus(arg0, arg1 interface{}) *gomock.Call {
 	s := []interface{}{arg0, arg1}
 	return mr.mock.ctrl.RecordCall(mr.mock, "GetMacroStatus", s...)
 }
 
-func (m *MockMainClient)  GetMacroSecret(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*mainpb.GetMacroSecretResponse, error){
+func (m *MockAuthClient)  GetMacroSecret(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*mainpb.GetMacroSecretResponse, error){
 	s := []interface{}{ctx, in}
 	for _, opt:= range opts {
 		s = append(s, opt)
@@ -95,12 +95,12 @@ func (m *MockMainClient)  GetMacroSecret(ctx context.Context, in *emptypb.Empty,
 	return ret0, ret1
 }
 
-func (mr *mockMainClientRecorder)  GetMacroSecret(arg0, arg1 interface{}) *gomock.Call{
+func (mr *mockAuthClientRecorder)  GetMacroSecret(arg0, arg1 interface{}) *gomock.Call{
 	s := []interface{}{arg0, arg1}
 	return mr.mock.ctrl.RecordCall(mr.mock, "GetMacroSecret", s...)
 }
 
-func (m *MockMainClient) ControlMacro(ctx context.Context, in *mainpb.ControlMacroRequest, opts ...grpc.CallOption) (*emptypb.Empty, error){
+func (m *MockAuthClient) ControlMacro(ctx context.Context, in *mainpb.ControlMacroRequest, opts ...grpc.CallOption) (*emptypb.Empty, error){
 	s := []interface{}{ctx, in}
 	for _, opt:= range opts {
 		s = append(s, opt)
@@ -113,7 +113,7 @@ func (m *MockMainClient) ControlMacro(ctx context.Context, in *mainpb.ControlMac
 	return ret0, ret1
 }
 
-func (mr *mockMainClientRecorder) ControlMacro(arg0, arg1 interface{}) *gomock.Call {
+func (mr *mockAuthClientRecorder) ControlMacro(arg0, arg1 interface{}) *gomock.Call {
 	s := []interface{}{arg0, arg1}
 	return mr.mock.ctrl.RecordCall(mr.mock, "ControlMacro", s...)
 }
