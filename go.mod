@@ -1,10 +1,10 @@
-module auth
+module github.com/auto-check/auth-service
 
 go 1.15
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
-	github.com/auto-check/common-module v0.0.0-20210617143205-4405d3cb5616
+	github.com/auto-check/common-module v1.0.0
 	github.com/auto-check/main-service v1.0.4
 	github.com/auto-check/protocol-buffer v0.0.0-20210621134450-b07712a20173
 	github.com/go-sql-driver/mysql v1.6.0

@@ -45,6 +45,9 @@ github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da/go.mod h1:Q73ZrmV
 github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
 github.com/auto-check/common-module v0.0.0-20210617143205-4405d3cb5616 h1:xwL0iXuHOKOnHfmFKrBmvsbjfjYrs7gtfHom/A2LWRA=
 github.com/auto-check/common-module v0.0.0-20210617143205-4405d3cb5616/go.mod h1:DrtcCBnUVy623s6Bx6P2nkLXNl8ZWXeHraIpqDhf77s=
+github.com/auto-check/common-module v1.0.0 h1:O8wE4AVSTGT1vHFGoQFv/kkI3mfqOTCtXk6ghFLz/NI=
+github.com/auto-check/common-module v1.0.0/go.mod h1:1uK9LG9O1EeTJHW0lH7FDD3VmypdUXMjMz1w4ps8Lew=
+github.com/auto-check/main-service v1.0.1/go.mod h1:zvk+6JrLlDO8sqp5Ml/1WEA0/5bjA2JK720KqZpXuQs=
 github.com/auto-check/main-service v1.0.2 h1:FANkOxiQyV0AvYxin3zLOfjC1LJMffLi3aiKhCyIUbg=
 github.com/auto-check/main-service v1.0.2/go.mod h1:zvk+6JrLlDO8sqp5Ml/1WEA0/5bjA2JK720KqZpXuQs=
 github.com/auto-check/main-service v1.0.3 h1:+Ch6YGd3YCZbT8SRNVKcg3yhD5ndLB0pSF2kQNQtsXQ=
